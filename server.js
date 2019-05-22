@@ -21,6 +21,7 @@ app.use(bodyParser.json())
 
 // GET method route
 app.get('/', (request, response) => {
+
     let Message=require('./models/message')
     Message.all(function(messages){
         response.render('pages/index',{messages:messages})
@@ -41,5 +42,10 @@ if(req.body.message ===undefined || req.body.message === ''){
 }
 
 })
-
+app.get('/message/:id',(req,res)=>{
+let Message=require('./models/message')
+Message.find(req.params.id,(message)=>{
+    res.render('/messages/show',{message:message})
+})
+})
 app.listen(8080)

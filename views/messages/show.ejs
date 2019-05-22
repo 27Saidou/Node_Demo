@@ -1,0 +1,17 @@
+<% include ../pages/header%>
+<div class="ui commments">
+    <div class="comment">
+        <a class="avatar" href="/message/<%=message.id %>">
+        <img src="https://placehold.it/150x100" alt="">
+        </a>
+        <div class="content">
+            <div class="metadata">
+                <div class="date">
+                    <%=message.created_at.fromNow()%>
+                </div>
+            </div>
+            <div class="test"><%=message.content%></div>
+        </div>
+    </div>
+</div>
+<% include ../pages/footer%>
