@@ -26,7 +26,7 @@ class Message {
         })
     }
     static find(id,cb) {
-        connection.query('SELECT * FROM messages WHERE id=? LIMIT 1',[id],(err, rows) => {
+        connection.query('SELECT * FROM messages where id=? LIMIT 1',[id],(err, rows) => {
             if (err) throw err
             cb(new Message(rows[0]))
         })

@@ -3,7 +3,7 @@ let app = express()
 let bodyParser = require('body-parser')
 let session =  require ('express-session')
 app.use(session({
-    secret: 'azeazeazeaze',
+    secret: 'azeaze',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
@@ -44,7 +44,8 @@ if(req.body.message ===undefined || req.body.message === ''){
 })
 app.get('/message/:id',(req,res)=>{
 let Message=require('./models/message')
-Message.find(req.params.id,(message)=>{
+Message.find(req.params.id,function(message){
+    //res.send(req.params.id)
     res.render('/messages/show',{message:message})
 })
 })
