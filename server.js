@@ -46,7 +46,8 @@ app.get('/message/:id',(req,res)=>{
 let Message=require('./models/message')
 Message.find(req.params.id,function(message){
     //res.send(req.params.id)
-    res.render('/messages/show',{message:message})
+    res.render('messages/show',{message:message})
+    res.render('messages/show',{message:message})
 })
 })
 app.listen(8080)
